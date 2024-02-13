@@ -115,5 +115,82 @@
                 "mac-address": ""
             }
         }
+    },
+    {
+        "device": "SWITCH_A1",
+        "device_role": "Switch",
+        "device_site": "Site_1",
+        "config_archive": "SWITCH_A1.txt",
+        "device_data": {
+            "device_type": "cisco_ios",
+            "host": "192.168.0.1",
+            "username": "eigrp_redes",
+            "password": "cafe_123@"
+        },
+        "interfaces": {
+            "GigabiteEthernet0/0": {
+                "status": "Enable",
+                "ip_address": "",
+                "mac-address": ""
+            }
+        }
+    },
+    {
+        "device": "SWITCH_A2",
+        "device_role": "Switch",
+        "device_site": "Site_1",
+        "config_archive": "SWITCH_A2.txt",
+        "device_data": {
+            "device_type": "cisco_ios",
+            "host": "192.168.0.1",
+            "username": "eigrp_redes",
+            "password": "cafe_123@"
+        },
+        "interfaces": {
+            "GigabiteEthernet0/1": {
+                "status": "Enable",
+                "ip_address": "",
+                "mac-address": ""
+            }
+        }
+    },
+    {
+        "device": "SWITCH_B1",
+        "device_role": "Switch",
+        "device_site": "Site_2",
+        "config_archive": "SWITCH_B1.txt",
+        "device_data": {
+            "device_type": "cisco_ios",
+            "host": "192.168.0.1",
+            "username": "eigrp_redes",
+            "password": "cafe_123@"
+        },
+        "interfaces": {
+            "GigabiteEthernet0/0": {
+                "status": "Enable",
+                "ip_address": "",
+                "mac-address": ""
+            }
+        }
+    },
+    {
+        "device": "SWITCH_C1",
+        "device_role": "Switch",
+        "device_site": "Site_3",
+        "config_archive": "SWITCH_C1.txt",
+        "device_data": {
+            "device_type": "cisco_ios",
+            "host": "192.168.0.1",
+            "username": "eigrp_redes",
+            "password": "cafe_123@"
+        },
+        "interfaces": {
+            "GigabiteEthernet0/0": {
+                "status": "Enable",
+                "ip_address": "",
+                "mac-address": ""
+            }
+        }
     }
+
 ]
