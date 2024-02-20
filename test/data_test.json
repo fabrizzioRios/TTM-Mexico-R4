@@ -6,29 +6,29 @@
         "config_archive": "ROUTER_RD.txt",
         "device_data": {
             "device_type": "cisco_ios",
-            "host": "192.168.0.1",
+            "host": "10.1.1.1",
             "username": "eigrp_redes",
             "password": "cafe_123@"
         },
         "interfaces": {
             "Serial0/0/0":{
                 "status": "Enable",
-                "ip_address": "",
+                "ip_address": "172.16.12.1",
                 "mac-address": ""
             },
             "Serial0/0/1":{
                 "status": "Enable",
-                "ip_address": "",
+                "ip_address": "172.16.13.1",
                 "mac-address": ""
             },
             "GigabiteEthernet0/0": {
                 "status": "Enable",
-                "ip_address": "",
+                "ip_address": "10.1.1.1",
                 "mac-address": ""
             },
             "GigabiteEthernet0/1": {
                 "status": "Enable",
-                "ip_address": "",
+                "ip_address": "10.1.2.1",
                 "mac-address": ""
             }
         }
@@ -40,24 +40,24 @@
         "config_archive": "ROUTER_2.txt",
         "device_data": {
             "device_type": "cisco_ios",
-            "host": "192.168.0.1",
+            "host": "10.2.1.1",
             "username": "eigrp_redes",
             "password": "cafe_123@"
         },
         "interfaces": {
             "Serial0/0/0":{
                 "status": "Enable",
-                "ip_address": "",
+                "ip_address": "172.16.12.2",
                 "mac-address": ""
             },
             "Serial0/0/1":{
                 "status": "Enable",
-                "ip_address": "",
+                "ip_address": "172.16.23.1",
                 "mac-address": ""
             },
             "GigabiteEthernet0/0": {
                 "status": "Enable",
-                "ip_address": "",
+                "ip_address": "10.2.1.1",
                 "mac-address": ""
             }
         } 
@@ -69,24 +69,24 @@
         "config_archive": "ROUTER_3.txt",
         "device_data": {
             "device_type": "cisco_ios",
-            "host": "192.168.0.1",
+            "host": "10.3.1.1",
             "username": "eigrp_redes",
             "password": "cafe_123@"
         },
         "interfaces": {
             "Serial0/0/0":{
                 "status": "Enable",
-                "ip_address": "",
+                "ip_address": "172.16.23.2",
                 "mac-address": ""
             },
             "Serial0/0/1":{
                 "status": "Enable",
-                "ip_address": "",
+                "ip_address": "172.16.13.2",
                 "mac-address": ""
             },
             "GigabiteEthernet0/0": {
                 "status": "Enable",
-                "ip_address": "",
+                "ip_address": "10.3.1.1",
                 "mac-address": ""
             }
 
@@ -99,19 +99,19 @@
         "config_archive": "ROUTER_3.txt",
         "device_data": {
             "device_type": "cisco_ios",
-            "host": "192.168.0.1",
+            "host": "10.2.1.2",
             "username": "eigrp_redes",
             "password": "cafe_123@"
         },
         "interfaces": {
             "GigabiteEthernet0/0": {
                 "status": "Enable",
-                "ip_address": "",
+                "ip_address": "10.2.1.2",
                 "mac-address": ""
             },
             "GigabiteEthernet0/1": {
                 "status": "Enable",
-                "ip_address": "",
+                "ip_address": "192.168.1.1",
                 "mac-address": ""
             }
         }
@@ -123,13 +123,13 @@
         "config_archive": "SWITCH_A1.txt",
         "device_data": {
             "device_type": "cisco_ios",
-            "host": "192.168.0.1",
+            "host": "10.1.1.2",
             "username": "eigrp_redes",
             "password": "cafe_123@"
         },
         "interfaces": {
-            "GigabiteEthernet0/0": {
-                "status": "Enable",
+            "Vlan1": {
+                "status": "10.1.1.2",
                 "ip_address": "",
                 "mac-address": ""
             }
@@ -142,14 +142,14 @@
         "config_archive": "SWITCH_A2.txt",
         "device_data": {
             "device_type": "cisco_ios",
-            "host": "192.168.0.1",
+            "host": "10.1.2.2",
             "username": "eigrp_redes",
             "password": "cafe_123@"
         },
         "interfaces": {
-            "GigabiteEthernet0/1": {
+            "Vlan1": {
                 "status": "Enable",
-                "ip_address": "",
+                "ip_address": "10.1.2.2",
                 "mac-address": ""
             }
         }
@@ -161,14 +161,14 @@
         "config_archive": "SWITCH_B1.txt",
         "device_data": {
             "device_type": "cisco_ios",
-            "host": "192.168.0.1",
+            "host": "192.168.1.2",
             "username": "eigrp_redes",
             "password": "cafe_123@"
         },
         "interfaces": {
-            "GigabiteEthernet0/0": {
+            "Vlan1": {
                 "status": "Enable",
-                "ip_address": "",
+                "ip_address": "192.168.1.2",
                 "mac-address": ""
             }
         }
@@ -180,14 +180,14 @@
         "config_archive": "SWITCH_C1.txt",
         "device_data": {
             "device_type": "cisco_ios",
-            "host": "192.168.0.1",
+            "host": "10.3.1.2",
             "username": "eigrp_redes",
             "password": "cafe_123@"
         },
         "interfaces": {
-            "GigabiteEthernet0/0": {
+            "Vlan1": {
                 "status": "Enable",
-                "ip_address": "",
+                "ip_address": "10.3.1.2",
                 "mac-address": ""
             }
         }
