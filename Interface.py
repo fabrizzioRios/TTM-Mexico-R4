@@ -1,10 +1,13 @@
 import tkinter as tk
 import tkinter.font as tkFont
+import time
+from netmiko_automation_tools import Device, Tools
 from math import ceil
 from PIL import Image, ImageTk
 
 class App:
     def __init__(self, root):
+        #Create the interface
         root.title("BigNuts")
         root.state('zoomed')
         root.configure(background = "#bcddd4")
@@ -15,6 +18,7 @@ class App:
         self.bannerwidth = self.screenwidth * 0.6
         bannerheight = self.screenheight * 0.4
 
+        #Create buttons
         self.Show_button = tk.Button(root)
         self.Show_button["activebackground"] = "#009688"
         self.Show_button["activeforeground"] = "#000000"
@@ -75,10 +79,21 @@ class App:
         self.Banner_image.create_image(0, 0, image=self.image, anchor=tk.NW)
         self.Banner_image.place(x=self.screenwidth / 2 - (self.bannerwidth / 2), y=self.screenheight * 0.1)
 
+    #Button Functions
     def Show_button_command(self):
         self.Banner_image.place_forget()
         self.Show_button.place_forget()
         self.Config_button.place_forget()
+        time.sleep(1)
+
+        device_list = Tools.open_json_from_file(r"C:\Users\wilie\Documents\11vo Cuatrimestre\Redes 4\Scripts\TTM-Mexico-R4\test\data_test.json")
+
+        ping_device_list = []
+        
+        for device in device_list:
+            connection_success = Tools.check_ping(device.get("device_data").get("host"))
+            ping_device_list.append("Hostname: " + device.get("device") + " connection successful" if connection_success else " connection unsuccessful")
+        print(ping_device_list)
 
     def Config_button_command(self):
         self.Show_button.place_forget()

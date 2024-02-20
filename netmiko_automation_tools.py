@@ -1,4 +1,5 @@
 import json
+import subprocess as sp
 
 from netmiko import ConnectHandler
 
@@ -8,7 +9,7 @@ class Device:
     def create_connection_send_command(cls, device: dict, command: str) -> bool:
         try:
             device_connection = ConnectHandler(**device)
-            device_connection.send_config_set(command)
+            device_connection.send_config_set([command])
             device_connection.disconnect()
             return True
         except Exception as err:
@@ -40,3 +41,16 @@ class Tools:
             return element_found
         except Exception as err:
             return None
+        
+    @classmethod
+    def check_ping(cls, ip_address):
+        try:    
+            result = sp.run(['ping', ip_address], stdout=sp.PIPE, stderr=sp.PIPE, text=True)
+            print(result)
+            print(result.returncode)
+            if 'bytes=' in result.stdout or 'bytes=' in result.stderr:
+                return True
+            else:
+                raise Exception()
+        except Exception as err:
+            return False
