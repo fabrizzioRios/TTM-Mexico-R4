@@ -6,8 +6,8 @@ from math import ceil
 from PIL import Image, ImageTk
 
 DEVICE_LIST = Tools.open_json_from_file(r"C:\Users\wilie\Documents\11vo Cuatrimestre\Redes 4\Scripts\TTM-Mexico-R4\test\data_test.json")
-DEVICE_TYPE_FLAG = 0 #1 = Switches, 2 = Routers, 3 = All Devices
-DEVICE_AREA_FLAG = [] #1 = Site 1, 2 = Site 2, 3 = Site 3
+DEVICE_TYPE_FLAG = []
+DEVICE_AREA_FLAG = []
 
 class App:
     def __init__(self, root):
@@ -26,7 +26,6 @@ class App:
         self.var_area1 = tk.BooleanVar()
         self.var_area2 = tk.BooleanVar()
         self.var_area3 = tk.BooleanVar()
-        self.var_all_areas = tk.BooleanVar()
 
         #Create buttons
         self.Show_button = tk.Button(root)
@@ -66,7 +65,7 @@ class App:
         self.Switch_button["fg"] = "#3e3e3e"
         self.Switch_button["justify"] = "center"
         self.Switch_button["text"] = "Configurar Switches"
-        self.Switch_button["command"] = lambda: self.Device_button_command(1)
+        self.Switch_button["command"] = lambda: self.Device_button_command(["Switch"])
 
         self.Router_button = tk.Button(root)
         self.Router_button["activebackground"] = "#009688"
@@ -77,7 +76,7 @@ class App:
         self.Router_button["fg"] = "#3e3e3e"
         self.Router_button["justify"] = "center"
         self.Router_button["text"] = "Configurar Routers"
-        self.Router_button["command"] = lambda: self.Device_button_command(2)
+        self.Router_button["command"] = lambda: self.Device_button_command(["Router"])
 
         self.All_De_button = tk.Button(root)
         self.All_De_button["activebackground"] = "#009688"
@@ -88,7 +87,7 @@ class App:
         self.All_De_button["fg"] = "#3e3e3e"
         self.All_De_button["justify"] = "center"
         self.All_De_button["text"] = "Configurar Todo"
-        self.All_De_button["command"] = lambda: self.Device_button_command(3)
+        self.All_De_button["command"] = lambda: self.Device_button_command(["Switch", "Router"])
 
         self.submit_button = tk.Button(root)
         self.submit_button["activebackground"] = "#009688"
@@ -194,13 +193,20 @@ class App:
         global DEVICE_AREA_FLAG, DEVICE_TYPE_FLAG
         
         if self.var_area1.get():
-            DEVICE_AREA_FLAG.append(1)
+            DEVICE_AREA_FLAG.append("Site_1")
         if self.var_area2.get():
-            DEVICE_AREA_FLAG.append(2)
+            DEVICE_AREA_FLAG.append("Site_2")
         if self.var_area3.get():
-            DEVICE_AREA_FLAG.append(3)
+            DEVICE_AREA_FLAG.append("Site_3")
 
-        print(DEVICE_AREA_FLAG)
+        print(DEVICE_AREA_FLAG, DEVICE_TYPE_FLAG)
+
+        filtered_list_by_zone = Tools.eliminate_element(DEVICE_LIST, "device_site", DEVICE_AREA_FLAG)
+        filtered_list_by_role = Tools.eliminate_element(filtered_list_by_zone, "device_role", DEVICE_TYPE_FLAG)
+
+        for device in filtered_list_by_role:
+            print(Device.config_device_with_txt(device.get("device_data"), r"comands.txt"))
+            
 
 root = tk.Tk()
 app = App(root)

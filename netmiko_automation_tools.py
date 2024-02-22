@@ -16,7 +16,7 @@ class Device:
             return False
 
     @classmethod
-    def conf_device(cls, device: dict, config_archive: str) -> bool:
+    def config_device_with_txt(cls, device: dict, config_archive: str) -> bool:
         try:
             device_connection = ConnectHandler(**device)
             device_connection.send_config_from_file(config_archive)
@@ -41,7 +41,25 @@ class Tools:
             return element_found
         except Exception as err:
             return None
+
+    @classmethod   
+    def find_all_elements(cls, list_to_search: list, key_to_search: str,
+                             element_to_search: str):
+        try:
+            elements_found = [item for item in list_to_search if item[key_to_search] == element_to_search]
+            return elements_found
+        except Exception as err:
+            return None
         
+    @classmethod
+    def eliminate_element(cls, list_to_search: list, key_to_search: str, 
+                          site_list: list):
+        try:
+            elements_found = [item for item in list_to_search if item[key_to_search] in site_list]
+            return elements_found
+        except Exception as err:
+            return None
+
     @classmethod
     def check_ping(cls, ip_address):
         try:    
