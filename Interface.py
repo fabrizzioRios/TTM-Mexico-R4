@@ -14,7 +14,7 @@ class App:
         #Create the interface
         root.title("Redes4 Interface")
         root.state('zoomed')
-        root.configure(background = "#bcddd4")
+        root.configure(background = "#232323")
         
         #Create important variables
         self.screenwidth = root.winfo_screenwidth()
@@ -140,23 +140,29 @@ class App:
         #Create Textbox
         self.message_Box=tk.Message(root)
         self.message_Box["font"] = ft
-        self.message_Box["fg"] = "black"
-        self.message_Box["justify"] = "center"
+        self.message_Box["fg"] = "#009688"
+        self.message_Box["justify"] = "Left"
 
     #Button Functions
     def Show_button_command(self):
         self.Banner_image.place_forget()
         self.Show_button.place_forget()
         self.Config_button.place_forget()
-        self.message_Box.place(x=(self.screenwidth / 2) - (self.buttonwidth * 2), y=(self.screenheight / 2 + (self.buttonheight * 3)),
-                          width=(self.buttonwidth * 2), height=(self.buttonheight * 3))
+        self.message_Box.place(x=(self.screenwidth / 2) - (self.buttonwidth * 1.5), 
+                           y=(self.screenheight / 2) - (self.buttonheight * 2),
+                           width=(self.buttonwidth * 3), height=(self.buttonheight * 4))
 
         ping_device_list = []
-        
+
         for device in DEVICE_LIST:
             connection_success = Tools.check_ping(device.get("device_data").get("host"))
-            ping_device_list.append("Hostname: " + device.get("device") + " connection successful" if connection_success else " connection unsuccessful")
-        print(ping_device_list)
+            ping_device_list.append("Hostname: " + device.get("device") + (" connection successful" if connection_success else " connection unsuccessful") + "\n")
+            self.message_Box["text"] = "".join(ping_device_list)
+            root.update()
+            time.sleep(0.1)
+
+        self.message_Box["text"] += "\nPing process complete."
+
 
     def Config_button_command(self):
         self.Show_button.place_forget()
