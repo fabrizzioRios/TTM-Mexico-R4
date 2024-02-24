@@ -27,6 +27,12 @@ class App:
         self.var_area1 = tk.BooleanVar()
         self.var_area2 = tk.BooleanVar()
         self.var_area3 = tk.BooleanVar()
+        self.var_area4 = tk.BooleanVar()
+        self.var_area5 = tk.BooleanVar()
+        self.var_area6 = tk.BooleanVar()
+        self.area_number = 3
+
+
 
         #Create buttons
         self.Show_button = tk.Button(root)
@@ -39,8 +45,6 @@ class App:
         self.Show_button["fg"] = "#3e3e3e"
         self.Show_button["justify"] = "center"
         self.Show_button["text"] = "Revisar Dispositivos"
-        self.Show_button.place(x=(self.screenwidth / 3) * 1 - (self.buttonwidth / 2), y=(self.screenheight / 2 + (self.buttonheight / 2)),
-                          width=self.buttonwidth, height=self.buttonheight)
         self.Show_button["command"] = self.Show_button_command
 
         self.Config_button = tk.Button(root)
@@ -52,8 +56,6 @@ class App:
         self.Config_button["fg"] = "#3e3e3e"
         self.Config_button["justify"] = "center"
         self.Config_button["text"] = "Configurar Dispositivos"
-        self.Config_button.place(x=(self.screenwidth / 3) * 2 - (self.buttonwidth / 2), y=(self.screenheight / 2 + (self.buttonheight / 2)),
-                            width=self.buttonwidth, height=self.buttonheight)
         self.Config_button["command"] = self.Config_button_command
 
         self.Switch_button = tk.Button(root)
@@ -101,6 +103,21 @@ class App:
         self.submit_button["text"] = "Confirmar"
         self.submit_button["command"] = self.submit
 
+        self.Add_area_button = tk.Button(root)
+        self.Add_area_button["activebackground"] = "#009688"
+        self.Add_area_button["activeforeground"] = "#000000"
+        self.Add_area_button["bg"] = "#79b7ac"
+        self.Add_area_button["borderwidth"] = "1.5px"
+        self.Add_area_button["font"] = ft
+        self.Add_area_button["fg"] = "#3e3e3e"
+        self.Add_area_button["justify"] = "center"
+        self.Add_area_button["text"] = "Agregar Area"
+        self.Add_area_button["command"] = self.Add_area
+
+        ft = tkFont.Font(family='Lucida Console', size=ceil(self.buttonheight * 0.06))
+        self.Back_button = tk.Button(root, activebackground="#009688", activeforeground="#000000", fg="#3e3e3e", text="Regresar", font=ft)
+        ft = tkFont.Font(family='Lucida Console', size=ceil(self.buttonheight * 0.08))
+
         #Create Banner Image
         self.original_image = Image.open('TTM_Logo.png')
         self.resized_image = self.original_image.resize((int(self.bannerwidth), int(bannerheight)))
@@ -108,7 +125,6 @@ class App:
 
         self.Banner_image = tk.Canvas(root, width=self.bannerwidth, height=bannerheight)
         self.Banner_image.create_image(0, 0, image=self.image, anchor=tk.NW)
-        self.Banner_image.place(x=self.screenwidth / 2 - (self.bannerwidth / 2), y=self.screenheight * 0.1)
 
         #Create Checkboxes
         self.checkbox_area1 = tk.Checkbutton(root, text="Area 1", variable=self.var_area1)
@@ -138,6 +154,33 @@ class App:
         self.checkbox_area3["fg"] = "#3e3e3e"
         self.checkbox_area3["justify"] = "center"
 
+        self.checkbox_area4 = tk.Checkbutton(root, text="Area 4", variable=self.var_area4)
+        self.checkbox_area4["activebackground"] = "#009688"
+        self.checkbox_area4["activeforeground"] = "#000000"
+        self.checkbox_area4["bg"] = "#79b7ac"
+        self.checkbox_area4["borderwidth"] = "1.5px"
+        self.checkbox_area4["font"] = ft
+        self.checkbox_area4["fg"] = "#3e3e3e"
+        self.checkbox_area4["justify"] = "center"
+
+        self.checkbox_area5 = tk.Checkbutton(root, text="Area 5", variable=self.var_area5)
+        self.checkbox_area5["activebackground"] = "#009688"
+        self.checkbox_area5["activeforeground"] = "#000000"
+        self.checkbox_area5["bg"] = "#79b7ac"
+        self.checkbox_area5["borderwidth"] = "1.5px"
+        self.checkbox_area5["font"] = ft
+        self.checkbox_area5["fg"] = "#3e3e3e"
+        self.checkbox_area5["justify"] = "center"
+
+        self.checkbox_area6 = tk.Checkbutton(root, text="Area 6", variable=self.var_area6)
+        self.checkbox_area6["activebackground"] = "#009688"
+        self.checkbox_area6["activeforeground"] = "#000000"
+        self.checkbox_area6["bg"] = "#79b7ac"
+        self.checkbox_area6["borderwidth"] = "1.5px"
+        self.checkbox_area6["font"] = ft
+        self.checkbox_area6["fg"] = "#3e3e3e"
+        self.checkbox_area6["justify"] = "center"
+
         #Create Textbox
         self.message_Box = tk.Text(root, wrap=tk.WORD, padx=30, pady=30, bg="#232323")
         ft = tkFont.Font(family='Lucida Console', size=ceil(self.buttonheight * 0.06))
@@ -147,23 +190,43 @@ class App:
         self.message_Box.tag_configure("end", foreground="#966FD6")
         self.message_Box.tag_configure("left", justify='left')
 
+        #Display first interface
+        self.StartMenu()
+
+
+
     #Button Functions
+    def StartMenu(self):
+        self.clear_interface()
+        
+        #Place necessary components
+        self.Banner_image.place(x=self.screenwidth / 2 - (self.bannerwidth / 2), y=self.screenheight * 0.1)
+        self.Show_button.place(x=(self.screenwidth / 3) * 1 - (self.buttonwidth / 2), y=(self.screenheight / 2 + (self.buttonheight / 2)),
+                          width=self.buttonwidth, height=self.buttonheight)
+        self.Config_button.place(x=(self.screenwidth / 3) * 2 - (self.buttonwidth / 2), y=(self.screenheight / 2 + (self.buttonheight / 2)),
+                            width=self.buttonwidth, height=self.buttonheight)
+
+
     def Show_button_command(self):
-        self.Banner_image.place_forget()
-        self.Show_button.place_forget()
-        self.Config_button.place_forget()
+        self.clear_interface()
+        
+        #Place necessary components
+        self.message_Box.delete(1.0, tk.END)
         self.message_Box.place(x=(self.screenwidth / 2) - (self.buttonwidth * 1.5), 
                            y=(self.screenheight / 2) - (self.buttonheight * 2.1),
                            width=(self.buttonwidth * 3), height=(self.buttonheight * 4))
+        self.Back_button["command"] = self.StartMenu
 
         root.update()
         time.sleep(0.1)
 
+        #Execute pings and show results
         for device in DEVICE_LIST:
             connection_success = Tools.check_ping(device.get("device_data").get("host"))
             ping_result = f"Hostname: {device.get('device')} " \
                           f"{'connection successful' if connection_success else 'connection unsuccessful'}\n\n\n"
 
+        #Paint successful pings green and unsuccessful pings red
             if connection_success:
                 self.message_Box.insert(tk.END, ping_result, "success")
             else:
@@ -174,67 +237,90 @@ class App:
             time.sleep(0.1)
 
         self.message_Box.insert(tk.END, "Ping process complete.", "end")
-        self.message_Box["state"] = tk.DISABLED
+        self.Back_button.place(x=20, y=20, width=100, height=40)
 
     def Config_button_command(self):
-        self.Show_button.place_forget()
-        self.Config_button.place_forget()
-        self.Banner_image.place(x=self.screenwidth / 2 - (self.bannerwidth / 2), y=self.screenheight * 0.1)
+        self.clear_interface()
+        self.area_number = 3
         
+        #Place necessary components
+        self.Banner_image.place(x=self.screenwidth / 2 - (self.bannerwidth / 2), y=self.screenheight * 0.1)
         self.Switch_button.place(x=(self.screenwidth / 4) * 1 - (self.buttonwidth / 3), y=(self.screenheight / 2 + (self.buttonheight / 2)),
                           width=(self.buttonwidth/1.5), height=(self.buttonheight/1.5))
-        
         self.Router_button.place(x=(self.screenwidth / 4) * 2 - (self.buttonwidth / 3), y=(self.screenheight / 2 + (self.buttonheight / 2)),
                           width=(self.buttonwidth/1.5), height=(self.buttonheight/1.5))
-        
         self.All_De_button.place(x=(self.screenwidth / 4) * 3 - (self.buttonwidth / 3), y=(self.screenheight / 2 + (self.buttonheight / 2)),
                           width=(self.buttonwidth/1.5), height=(self.buttonheight/1.5))
+        self.Back_button["command"] = self.StartMenu
+        self.Back_button.place(x=20, y=20, width=100, height=40)
         
     def Device_button_command(self, device_flag):
-        global DEVICE_TYPE_FLAG
+        global DEVICE_TYPE_FLAG, DEVICE_AREA_FLAG
         DEVICE_TYPE_FLAG = device_flag
-
-        self.Switch_button.place_forget()
-        self.Router_button.place_forget()
-        self.All_De_button.place_forget()
-
-        self.checkbox_area1.place(x=(self.screenwidth / 4) * 1 - (self.buttonwidth / 3), y=(self.screenheight / 2 + (self.buttonheight / 3)),
-                          width=(self.buttonwidth/1.5), height=(self.buttonheight/1.5))
-        self.checkbox_area2.place(x=(self.screenwidth / 4) * 2 - (self.buttonwidth / 3), y=(self.screenheight / 2 + (self.buttonheight / 3)),
-                          width=(self.buttonwidth/1.5), height=(self.buttonheight/1.5))
-        self.checkbox_area3.place(x=(self.screenwidth / 4) * 3 - (self.buttonwidth / 3), y=(self.screenheight / 2 + (self.buttonheight / 3)),
-                          width=(self.buttonwidth/1.5), height=(self.buttonheight/1.5))
-        self.submit_button.place(x=(self.screenwidth / 2) - (self.buttonwidth / 4), y=(self.screenheight / 6) * 5 - (self.buttonheight /3),
+        DEVICE_AREA_FLAG = []
+        self.clear_interface()
+        self.var_area1.set(False)
+        self.var_area2.set(False)
+        self.var_area3.set(False)
+        self.var_area4.set(False)
+        self.var_area5.set(False)
+        self.var_area6.set(False)
+        
+        #Place necessary components
+        self.Banner_image.place(x=self.screenwidth / 2 - (self.bannerwidth / 2), y=self.screenheight * 0.1)
+        self.checkbox_area1.place(x=(self.screenwidth / 4) * 1 - (self.buttonwidth / 3), y=(self.screenheight / 2 + (self.buttonheight / 5)),
+                          width=(self.buttonwidth/1.5), height=(self.buttonheight/2))
+        self.checkbox_area2.place(x=(self.screenwidth / 4) * 2 - (self.buttonwidth / 3), y=(self.screenheight / 2 + (self.buttonheight / 5)),
+                          width=(self.buttonwidth/1.5), height=(self.buttonheight/2))
+        self.checkbox_area3.place(x=(self.screenwidth / 4) * 3 - (self.buttonwidth / 3), y=(self.screenheight / 2 + (self.buttonheight / 5)),
+                          width=(self.buttonwidth/1.5), height=(self.buttonheight/2))
+        
+        self.Add_area_button.place(x=(self.screenwidth / 3) * 1 - (self.buttonwidth / 3), y=(self.screenheight / 6) * 5 - (self.buttonheight /6),
                           width=(self.buttonwidth/2), height=(self.buttonheight/2))
+        self.submit_button.place(x=(self.screenwidth / 3) * 2 - (self.buttonwidth / 3), y=(self.screenheight / 6) * 5 - (self.buttonheight /6),
+                          width=(self.buttonwidth/2), height=(self.buttonheight/2))
+        self.Back_button["command"] = self.Config_button_command
+        self.Back_button.place(x=20, y=20, width=100, height=40)
 
     def submit(self):
         global DEVICE_AREA_FLAG, DEVICE_TYPE_FLAG
-        self.checkbox_area1.place_forget()
-        self.checkbox_area2.place_forget()
-        self.checkbox_area3.place_forget()
-        self.Banner_image.place_forget()
-        self.submit_button.place_forget()
+        self.clear_interface()
+
+        #Place necessary components
+        self.message_Box.delete(1.0, tk.END)
         self.message_Box.place(x=(self.screenwidth / 2) - (self.buttonwidth * 1.5), 
                            y=(self.screenheight / 2) - (self.buttonheight * 2.1),
                            width=(self.buttonwidth * 3), height=(self.buttonheight * 4))
+        self.Back_button["command"] = lambda: self.Device_button_command(DEVICE_TYPE_FLAG)
         root.update()
         time.sleep(0.1)
         
+        #Add selected checkbox values to list
         if self.var_area1.get():
             DEVICE_AREA_FLAG.append("Site_1")
         if self.var_area2.get():
             DEVICE_AREA_FLAG.append("Site_2")
         if self.var_area3.get():
             DEVICE_AREA_FLAG.append("Site_3")
+        if self.var_area4.get():
+            DEVICE_AREA_FLAG.append("Site_4")
+        if self.var_area5.get():
+            DEVICE_AREA_FLAG.append("Site_5")
+        if self.var_area6.get():
+            DEVICE_AREA_FLAG.append("Site_6")
 
+        #Filter devices by zone and role
         filtered_list_by_zone = Tools.eliminate_element(DEVICE_LIST, "device_site", DEVICE_AREA_FLAG)
         filtered_list_by_role = Tools.eliminate_element(filtered_list_by_zone, "device_role", DEVICE_TYPE_FLAG)
 
+        print(DEVICE_AREA_FLAG, DEVICE_TYPE_FLAG)
+        #Send configuration file to all applicable routers
         for device in filtered_list_by_role:
             configuration_success = Device.config_device_with_txt(device.get("device_data"), r"comands.txt")
             config_result = f"Hostname: {device.get('device')} " \
                           f"{'configuration successful' if configuration_success else 'configuration unsuccessful'}\n\n\n"
 
+        #Paint successful configurations green and unsuccessful configurations red
             if configuration_success:
                 self.message_Box.insert(tk.END, config_result, "success")
             else:
@@ -245,7 +331,52 @@ class App:
             time.sleep(0.1)  
 
         self.message_Box.insert(tk.END, "Configuration process complete.", "end")
-        self.message_Box["state"] = tk.DISABLED       
+        self.Back_button.place(x=20, y=20, width=100, height=40)
+
+    def Add_area(self):
+        if self.area_number < 6:
+            self.checkbox_area4.place_forget()
+            self.checkbox_area5.place_forget()
+            self.checkbox_area6.place_forget()
+
+        if self.area_number == 3:
+            self.checkbox_area4.place(x=(self.screenwidth / 2) - (self.buttonwidth / 3), y=(self.screenheight / 2 + (self.buttonheight / 1.2)),
+                          width=(self.buttonwidth/1.5), height=(self.buttonheight/2))
+            self.area_number = 4
+        
+        elif self.area_number == 4:
+            self.checkbox_area4.place(x=(self.screenwidth / 5) * 2 - (self.buttonwidth / 2), y=(self.screenheight / 2 + (self.buttonheight / 1.2)),
+                          width=(self.buttonwidth/1.5), height=(self.buttonheight/2))
+            self.checkbox_area5.place(x=(self.screenwidth / 5) * 3 - (self.buttonwidth / 5.5), y=(self.screenheight / 2 + (self.buttonheight / 1.2)),
+                          width=(self.buttonwidth/1.5), height=(self.buttonheight/2))
+            self.area_number = 5
+            
+        elif self.area_number == 5:
+            self.checkbox_area4.place(x=(self.screenwidth / 4) * 1 - (self.buttonwidth / 3), y=(self.screenheight / 2 + (self.buttonheight / 1.2)),
+                            width=(self.buttonwidth/1.5), height=(self.buttonheight/2))
+            self.checkbox_area5.place(x=(self.screenwidth / 4) * 2 - (self.buttonwidth / 3), y=(self.screenheight / 2 + (self.buttonheight / 1.2)),
+                            width=(self.buttonwidth/1.5), height=(self.buttonheight/2))
+            self.checkbox_area6.place(x=(self.screenwidth / 4) * 3 - (self.buttonwidth / 3), y=(self.screenheight / 2 + (self.buttonheight / 1.2)),
+                            width=(self.buttonwidth/1.5), height=(self.buttonheight/2))
+            self.area_number = 6
+    
+    def clear_interface(self):
+        self.checkbox_area1.place_forget()
+        self.checkbox_area2.place_forget()
+        self.checkbox_area3.place_forget()
+        self.checkbox_area4.place_forget()
+        self.checkbox_area5.place_forget()
+        self.checkbox_area6.place_forget()
+        self.Banner_image.place_forget()
+        self.submit_button.place_forget()
+        self.Add_area_button.place_forget()
+        self.Switch_button.place_forget()
+        self.Router_button.place_forget()
+        self.All_De_button.place_forget()
+        self.Show_button.place_forget()
+        self.Config_button.place_forget()
+        self.message_Box.place_forget()
+        self.Back_button.place_forget()
 
 root = tk.Tk()
 app = App(root)
