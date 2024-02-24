@@ -7,8 +7,8 @@
         "device_data": {
             "device_type": "cisco_ios",
             "host": "10.1.1.1",
-            "username": "eigrp_redes",
-            "password": "cafe_123@"
+            "username": "admin",
+            "password": "cisco"
         },
         "interfaces": {
             "Serial0/0/0":{
@@ -41,8 +41,8 @@
         "device_data": {
             "device_type": "cisco_ios",
             "host": "10.2.1.1",
-            "username": "eigrp_redes",
-            "password": "cafe_123@"
+            "username": "alumno",
+            "password": "cisco"
         },
         "interfaces": {
             "Serial0/0/0":{
@@ -70,8 +70,8 @@
         "device_data": {
             "device_type": "cisco_ios",
             "host": "10.3.1.1",
-            "username": "eigrp_redes",
-            "password": "cafe_123@"
+            "username": "alumno",
+            "password": "cisco"
         },
         "interfaces": {
             "Serial0/0/0":{
@@ -100,8 +100,8 @@
         "device_data": {
             "device_type": "cisco_ios",
             "host": "10.2.1.2",
-            "username": "eigrp_redes",
-            "password": "cafe_123@"
+            "username": "alumno",
+            "password": "cisco"
         },
         "interfaces": {
             "GigabiteEthernet0/0": {
@@ -124,8 +124,8 @@
         "device_data": {
             "device_type": "cisco_ios",
             "host": "10.1.1.2",
-            "username": "eigrp_redes",
-            "password": "cafe_123@"
+            "username": "alumno",
+            "password": "cisco"
         },
         "interfaces": {
             "Vlan1": {
@@ -143,8 +143,8 @@
         "device_data": {
             "device_type": "cisco_ios",
             "host": "10.1.2.2",
-            "username": "eigrp_redes",
-            "password": "cafe_123@"
+            "username": "alumno",
+            "password": "cisco"
         },
         "interfaces": {
             "Vlan1": {
@@ -162,8 +162,8 @@
         "device_data": {
             "device_type": "cisco_ios",
             "host": "192.168.1.2",
-            "username": "eigrp_redes",
-            "password": "cafe_123@"
+            "username": "alumno",
+            "password": "cisco"
         },
         "interfaces": {
             "Vlan1": {
@@ -181,8 +181,8 @@
         "device_data": {
             "device_type": "cisco_ios",
             "host": "10.3.1.2",
-            "username": "eigrp_redes",
-            "password": "cafe_123@"
+            "username": "alumno",
+            "password": "cisco"
         },
         "interfaces": {
             "Vlan1": {
