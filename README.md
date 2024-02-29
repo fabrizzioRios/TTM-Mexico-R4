@@ -41,8 +41,9 @@ El siguiente comando ayuda a instalar todo directamente en el lugar donde este a
 Y listo, el proyecto debera de ser funcional y podra ser editado y configurado de manera que se adapte a la red donde se necesite ser usado.
 
 # Autores ✒️
-- Valentina Balderas Torres
-- Paulina Osuna Guzman
 - Samuel Gutierrez Madrigal
 - Wilialdo Perez Oseguera
-- Luis Fabrizzio Rios Ruiz 
+- Luis Fabrizzio Rios Ruiz
+- Valentina Balderas Torres
+- Paulina Osuna Guzman
+- Rogelio Cuevas Salvador
