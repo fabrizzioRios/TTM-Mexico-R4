@@ -2,13 +2,13 @@
     {
         "device": "ROUTER_A",
         "device_role": "Router",
-        "device_site": "Site_1",
+        "device_site": "Oficina_Zapopan",
         "config_archive": "ROUTER_RD.txt",
         "device_data": {
             "device_type": "cisco_ios",
             "host": "10.1.1.1",
-            "username": "eigrp_redes",
-            "password": "cafe_123@"
+            "username": "admin",
+            "password": "cisco"
         },
         "interfaces": {
             "Serial0/0/0":{
@@ -36,13 +36,13 @@
     {
         "device": "ROUTER_B",
         "device_role": "Router",
-        "device_site": "Site_2",
+        "device_site": "Oficina_CDMX",
         "config_archive": "ROUTER_2.txt",
         "device_data": {
             "device_type": "cisco_ios",
             "host": "10.2.1.1",
-            "username": "eigrp_redes",
-            "password": "cafe_123@"
+            "username": "admin",
+            "password": "cisco"
         },
         "interfaces": {
             "Serial0/0/0":{
@@ -65,13 +65,13 @@
     {
         "device": "ROUTER_C",
         "device_role": "Router",
-        "device_site": "Site_3",
+        "device_site": "Datacenter_Monterrey",
         "config_archive": "ROUTER_3.txt",
         "device_data": {
             "device_type": "cisco_ios",
             "host": "10.3.1.1",
-            "username": "eigrp_redes",
-            "password": "cafe_123@"
+            "username": "admin",
+            "password": "cisco"
         },
         "interfaces": {
             "Serial0/0/0":{
@@ -95,13 +95,13 @@
     {
         "device": "ROUTER_B1",
         "device_role": "Router",
-        "device_site": "Site_2",
+        "device_site": "Oficina_CDMX",
         "config_archive": "ROUTER_3.txt",
         "device_data": {
             "device_type": "cisco_ios",
             "host": "10.2.1.2",
-            "username": "eigrp_redes",
-            "password": "cafe_123@"
+            "username": "admin",
+            "password": "cisco"
         },
         "interfaces": {
             "GigabiteEthernet0/0": {
@@ -119,13 +119,13 @@
     {
         "device": "SWITCH_A1",
         "device_role": "Switch",
-        "device_site": "Site_1",
+        "device_site": "Oficina_Zapopan",
         "config_archive": "SWITCH_A1.txt",
         "device_data": {
             "device_type": "cisco_ios",
             "host": "10.1.1.2",
-            "username": "eigrp_redes",
-            "password": "cafe_123@"
+            "username": "admin",
+            "password": "cisco"
         },
         "interfaces": {
             "Vlan1": {
@@ -138,13 +138,13 @@
     {
         "device": "SWITCH_A2",
         "device_role": "Switch",
-        "device_site": "Site_1",
+        "device_site": "Oficina_Zapopan",
         "config_archive": "SWITCH_A2.txt",
         "device_data": {
             "device_type": "cisco_ios",
             "host": "10.1.2.2",
-            "username": "eigrp_redes",
-            "password": "cafe_123@"
+            "username": "admin",
+            "password": "cisco"
         },
         "interfaces": {
             "Vlan1": {
@@ -157,13 +157,13 @@
     {
         "device": "SWITCH_B1",
         "device_role": "Switch",
-        "device_site": "Site_2",
+        "device_site": "Oficina_CDMX",
         "config_archive": "SWITCH_B1.txt",
         "device_data": {
             "device_type": "cisco_ios",
             "host": "192.168.1.2",
-            "username": "eigrp_redes",
-            "password": "cafe_123@"
+            "username": "admin",
+            "password": "cisco"
         },
         "interfaces": {
             "Vlan1": {
@@ -176,13 +176,13 @@
     {
         "device": "SWITCH_C1",
         "device_role": "Switch",
-        "device_site": "Site_3",
+        "device_site": "Datacenter_Monterrey",
         "config_archive": "SWITCH_C1.txt",
         "device_data": {
             "device_type": "cisco_ios",
             "host": "10.3.1.2",
-            "username": "eigrp_redes",
-            "password": "cafe_123@"
+            "username": "admin",
+            "password": "cisco"
         },
         "interfaces": {
             "Vlan1": {
