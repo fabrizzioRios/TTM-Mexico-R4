@@ -42,17 +42,17 @@ class Tools:
         except Exception as err:
             return None
 
-    @classmethod   
+    @classmethod
     def find_all_elements(cls, list_to_search: list, key_to_search: str,
-                             element_to_search: str):
+                          element_to_search: str):
         try:
             elements_found = [item for item in list_to_search if item[key_to_search] == element_to_search]
             return elements_found
         except Exception as err:
             return None
-        
+
     @classmethod
-    def eliminate_element(cls, list_to_search: list, key_to_search: str, 
+    def eliminate_element(cls, list_to_search: list, key_to_search: str,
                           site_list: list):
         try:
             elements_found = [item for item in list_to_search if item[key_to_search] in site_list]
@@ -62,7 +62,7 @@ class Tools:
 
     @classmethod
     def check_ping(cls, ip_address):
-        try:    
+        try:
             result = sp.run(['ping', ip_address], stdout=sp.PIPE, stderr=sp.PIPE, text=True)
             print(result)
             print(result.returncode)
