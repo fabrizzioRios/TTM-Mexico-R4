@@ -43,4 +43,7 @@ Y listo, el proyecto debera de ser funcional y podra ser editado y configurado d
 # Autores ✒️
 - Samuel Gutierrez Madrigal
 - Wilialdo Perez Oseguera
-- Luis Fabrizzio Rios Ruiz 
+- Luis Fabrizzio Rios Ruiz
+- Valentina Balderas Torres
+- Paulina Osuna Guzman
+- Rogelio Cuevas Salvador
